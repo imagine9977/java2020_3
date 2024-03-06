@@ -1,0 +1,21 @@
+package sec1;
+
+public class ExceptionExam5 {
+	public static void main(String[] args) {
+		
+	}
+	
+	private void changeAnimal() {
+		// TODO Auto-generated method stub
+		try {
+			Dog dog = (Dog) animal;
+			
+		} catch(ClassCastException e) {
+			e.printStackTrace();
+		}catch(Exception e) {
+			e.getMessage();
+		}finally {
+			System.out.println("작업종료");
+		}
+	}
+}

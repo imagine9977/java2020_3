@@ -1,0 +1,10 @@
+package sec1;
+
+public class ExceptionExam1 {
+	public static void main(String[] args) {
+		int data;
+		String name = "³¦±âÅÂ";
+		System.out.println("data:"+data);
+		System.out.println("name:"+name);
+	}
+}

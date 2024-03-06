@@ -1,0 +1,12 @@
+package sec1;
+
+class Outer{
+	private int num = 10;
+	private static int sNum = 20; //정적 멤버 필드
+}
+
+public class InnerClassExam {
+	public static void main(String[] args) {
+		
+	}
+}

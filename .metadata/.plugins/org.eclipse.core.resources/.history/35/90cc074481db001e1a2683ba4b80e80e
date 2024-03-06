@@ -1,0 +1,7 @@
+package sec3;
+class Visitor{
+	private String name;
+}
+public class StreamExam4 {
+	
+}

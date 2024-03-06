@@ -1,0 +1,12 @@
+package sec3;
+
+import java.util.Arrays;
+
+public class StreamExam {
+	public static void main(String[] args) {
+		int[] arr= {95,100,85,90};
+		Arrays.stream(arr).forEach(n->System.out.println(n)); 
+		int sum = Arrays.stream(arr).sum();
+		System.out.println("Total sum: "+sum);
+	}
+}
