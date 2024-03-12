@@ -1,0 +1,22 @@
+package behavioral.command;
+
+public class LampCommand implements Command{
+	private Lamp theLamp;
+
+	public LampCommand(Lamp theLamp) {
+		super();
+		this.theLamp = theLamp;
+	}
+
+	@Override
+	public void execute(boolean sw) {
+		// TODO Auto-generated method stub
+		if(sw) {
+			theLamp.turnOn();
+		}else {
+			theLamp.turnOff();
+		}
+	}
+	
+	
+}

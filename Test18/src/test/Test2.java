@@ -11,7 +11,7 @@ public class Test2 {
 		while(true) {
 			System.out.println("추가할 이름을 입력하세요: ");
 			String name = sc.next();
-			if(name == "clear") {
+			if(name == "clear") { //String 비교들은 전부 equals()를 써라
 				System.out.println("이름 목록을 초기화 합니다.");
 				nameList.clear();
 				continue; //continue가 마지막에 와야 함
@@ -32,7 +32,7 @@ public class Test2 {
 		for(String name:nameList) {
 			System.out.println(name);
 		}
-	
+		
 	
 	}
 }
