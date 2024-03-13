@@ -7,73 +7,67 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class OracleDB {
+	Connection con = null;	//연결
+	PreparedStatement pstmt = null;	//상태 변경(ON/OFF) 하고, SQL 문장 실행
+	ResultSet rs = null;	//검색(Select문)의 결과를 반환받음
 	String driver = "oracle.jdbc.driver.OracleDriver";
 	String url = "jdbc:oracle:thin:@localhost:1521:xe";
 	String userid = "system";
 	String userpw = "1234";
-	Connection con = null;
-	PreparedStatement pstmt = null;
-
+	
 	public Connection connect() {
 		try {
-			Class.forName(driver); // 자동으로 드라이브 매니저 생성
-			con = DriverManager.getConnection(url, userid, userpw);
-			// con(연결)->pstmt(전원) ->rs (SQL실행)
-
-		} catch (Exception e) {
+			Class.forName(driver);
+			try {
+				con = DriverManager.getConnection(url, userid, userpw);
+			} catch (SQLException e) {
+				System.out.println("데이터베이스 연결 실패 또는 SQL 처리 실패");
+				e.printStackTrace();
+			}
+		} catch (ClassNotFoundException e) {
+			System.out.println("드라이버 로딩 실패");
 			e.printStackTrace();
 		}
-
 		return con;
 	}
-
-	public void close(Connection con) {
-		try {
-			if (con != null) {
-
-				con.close();
-			}
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
-	}
-
-	public void close(Connection con, PreparedStatement pstmt) {
-		try {
-			if (pstmt != null) {
+	
+	public void close(PreparedStatement pstmt, Connection con) {
+		if(pstmt!=null) {
+			try {
 				pstmt.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
 			}
-			if (con != null) {
-
-				con.close();
-			}
-
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
 		}
-
+		if(con!=null) {
+			try {
+				con.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
 	}
-
-	public void close(Connection con, PreparedStatement pstmt, ResultSet rs) {
-		try {
-			if (rs != null) {
+	public void close(ResultSet rs, PreparedStatement pstmt, Connection con) {
+		if(rs!=null) {
+			try {
 				rs.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
 			}
-			if (pstmt != null) {
-				pstmt.close();
-			}
-			if (con != null) {
-
-				con.close();
-			}
-
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
 		}
-
+		if(pstmt!=null) {
+			try {
+				pstmt.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		if(con!=null) {
+			try {
+				con.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
 	}
 }

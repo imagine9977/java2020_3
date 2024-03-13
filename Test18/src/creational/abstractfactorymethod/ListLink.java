@@ -10,7 +10,7 @@ public abstract class ListLink extends Link {
 	@Override
 	public String makeHTML() {
 		// TODO Auto-generated method stub
-		return "<a href=\""+url+"\">"+caption+"<\a>";
+		return "<a href=\""+url+"\">"+caption+"</a>";
 	}
 
 }
