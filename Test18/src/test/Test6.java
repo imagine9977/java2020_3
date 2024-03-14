@@ -14,7 +14,7 @@ public class Test6 {
 			if(personId.length()==14) {
 				char gender = personId.charAt(7);
 				if(gender == '1'||gender == '2'||gender == '3'||gender == '4') {
-					personArr[i-1] = personId.substring(0,8)+"******"; //end값이 8은 포함안된다
+					personArr[i-1] = personId.substring(0,8)+"******"; //end값이 8은 포함안된다->0부터 7위치에 있는 숫자만 포함됨
 				}else{
 					System.out.println("잘못된 주민번호 형식입니다. 다시 한번 입력해주세요.");
 					i--;
